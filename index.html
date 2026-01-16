@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap&subset=vietnamese" rel="stylesheet">
 
     <style>
-        /* --- CẤU TRÚC CƠ BẢN --- */
+     
         body {
             font-family: 'Roboto', Arial, sans-serif;
             background-color: #f4f6f8;
@@ -17,12 +17,8 @@
             line-height: 1.6;
         }
 
-        /* TẠO HIỆU ỨNG TRƯỢT ÊM ÁI */
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
-        /* --- HEADER --- */
         header {
             background-image: url("https://imgs.search.brave.com/2iPelJfLu2wYZlj-01ZzzNlVr1A7EOwzeYEs0Lv0SVQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90aHV0/aHVhdG5oYW5oLmNv/bS93cC1jb250ZW50/L3VwbG9hZHMvMjAy/Mi8wOC9oaW5oLWFu/aC1hbi10b2FuLWdp/YW8tdGhvbmctZG9u/LWdpYW4tODAweDUz/NC5qcGc");
             background-size: cover;
@@ -60,13 +56,8 @@
             color: #d32f2f;
         }
 
-        header p {
-            font-size: 1.1em;
-            font-weight: 500;
-            margin: 0;
-        }
+        header p { font-size: 1.1em; font-weight: 500; margin: 0; }
 
-        /* --- NAVIGATION (MENU) --- */
         nav {
             background-color: #fff3b0;
             padding: 0;
@@ -91,11 +82,8 @@
             transition: background 0.3s;
         }
 
-        nav a:hover, .dropdown:hover .menu-title {
-            background-color: #fdd835;
-        }
+        nav a:hover, .dropdown:hover .menu-title { background-color: #fdd835; }
 
-        /* --- DROPDOWN MENU --- */
         .dropdown {
             position: relative;
             display: inline-flex;
@@ -103,27 +91,15 @@
             font-weight: bold;
         }
 
-        .dropdown input[type="checkbox"] {
-            display: none;
-        }
+        .dropdown input[type="checkbox"] { display: none; }
 
-        .dropdown .menu-title {
-            padding: 15px 5px 15px 15px;
-            cursor: pointer;
-        }
-
-        .dropdown .arrow {
-            font-size: 10px;
-            padding: 15px 15px 15px 0;
-            cursor: pointer;
-            user-select: none;
-        }
+        .dropdown .menu-title { padding: 15px 5px 15px 15px; cursor: pointer; }
+        .dropdown .arrow { font-size: 10px; padding: 15px 15px 15px 0; cursor: pointer; user-select: none; }
 
         .dropdown-content {
             display: none;
             position: absolute;
-            top: 100%;
-            left: 0;
+            top: 100%; left: 0;
             background-color: #fff9c4;
             min-width: 200px;
             box-shadow: 0 6px 12px rgba(0,0,0,0.2);
@@ -132,30 +108,22 @@
             padding: 5px 0;
         }
 
-        /* Ép các mục trong dropdown thẳng hàng dọc */
         .dropdown-content a {
-            display: block; 
-            width: 100%;
+            display: block; width: 100%;
             padding: 12px 20px;
             text-align: left;
             box-sizing: border-box;
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
-        .dropdown-content a:last-child {
-            border-bottom: none;
-        }
+        .dropdown-content a:last-child { border-bottom: none; }
+        .dropdown input:checked ~ .dropdown-content { display: block; }
 
-        .dropdown input:checked ~ .dropdown-content {
-            display: block;
-        }
-
-        /* --- PHẦN NỘI DUNG --- */
         section {
             padding: 20px;
             max-width: 1000px;
             margin: 30px auto;
-            scroll-margin-top: 80px; /* Tránh menu che mất tiêu đề khi trượt xuống */
+            scroll-margin-top: 80px;
         }
 
         .category {
@@ -172,44 +140,68 @@
             padding-bottom: 8px;
             margin-top: 0;
         }
+        
+     
+        .sign-group {
+            margin-bottom: 30px;
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 20px;
+        }
+        
+        .sign-group:last-child { border-bottom: none; }
 
-        .category ul {
-            padding-left: 20px;
+        .sign-group h3 {
+            color: #d32f2f;
+            font-size: 1.2em;
+            margin-bottom: 10px;
         }
 
-        .category li {
-            margin-bottom: 12px;
+        .sign-desc {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 15px;
+            background: #fafafa;
+            padding: 10px;
+            border-radius: 5px;
         }
 
-        .welcome {
-            text-align: center;
-        }
-
-        /* --- BIỂN BÁO --- */
         .signs {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: flex-start; /* Canh trái để đều hơn khi nhiều ảnh */
             gap: 20px;
         }
 
         .sign {
             text-align: center;
-            width: 140px;
+            width: 130px;
+            background: #fff;
+            padding: 10px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            transition: box-shadow 0.3s;
+        }
+        
+        .sign:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         .sign img {
-            width: 100px;
-            height: 100px;
+            width: 90px;
+            height: 90px;
             object-fit: contain;
             transition: transform 0.2s;
         }
         
-        .sign img:hover {
-            transform: scale(1.1);
+        .sign img:hover { transform: scale(1.1); }
+        
+        .sign p {
+            font-size: 0.9em;
+            margin-top: 10px;
+            margin-bottom: 0;
+            font-weight: 500;
         }
 
-        /* --- GIÁ TIỀN PHẠT --- */
         .price {
             color: #d32f2f;
             font-weight: 700;
@@ -218,7 +210,6 @@
             border-radius: 4px;
         }
 
-        /* --- FOOTER --- */
         footer {
             background-color: #f2c200;
             color: #2c2c2c;
@@ -228,11 +219,11 @@
             font-weight: bold;
         }
 
-        /* --- MOBILE RESPONSIVE --- */
         @media (max-width: 768px) {
             header h1 { font-size: 1.5em; }
             nav { font-size: 14px; }
             .dropdown-content { position: relative; width: 100%; box-shadow: none; }
+            .signs { justify-content: center; }
         }
     </style>
 </head>
@@ -400,30 +391,128 @@
     </section>
     
     <section id="bien-bao" class="category">
-        <h2>Biển Báo Giao Thông</h2>
-        <div class="signs">
-            <div class="sign">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Vietnam_road_sign_P130.svg/120px-Vietnam_road_sign_P130.svg.png" alt="Cấm dừng đỗ">
-                <p>Cấm dừng và đỗ</p>
+        <h2>Hệ Thống Biển Báo Giao Thông</h2>
+        <p>Hệ thống biển báo đường bộ Việt Nam được chia thành 5 nhóm chính theo Quy chuẩn 41:2019/BGTVT:</p>
+
+        <div class="sign-group">
+            <h3>1. Biển Báo Cấm</h3>
+            <div class="sign-desc">
+                <strong>Đặc điểm:</strong> Đa số hình tròn, viền đỏ, nền trắng, hình vẽ màu đen. <br>
+                <strong>Ý nghĩa:</strong> Biểu thị các điều cấm mà người tham gia giao thông không được vi phạm.
             </div>
-            <div class="sign">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Vietnam_road_sign_P131a.svg/120px-Vietnam_road_sign_P131a.svg.png" alt="Cấm đỗ">
-                <p>Cấm đỗ xe</p>
-            </div>
-            <div class="sign">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Vietnam_road_sign_W201b.svg/120px-Vietnam_road_sign_W201b.svg.png" alt="Nguy hiểm">
-                <p>Ngoặt nguy hiểm</p>
-            </div>
-            <div class="sign">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Vietnam_road_sign_I441b.svg/120px-Vietnam_road_sign_I441b.svg.png" alt="Chỉ dẫn">
-                <p>Biển chỉ dẫn</p>
-            </div>
-            <div class="sign">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Vietnam_road_sign_P122.svg/120px-Vietnam_road_sign_P122.svg.png" alt="Stop">
-                <p>Dừng lại (STOP)</p>
+            <div class="signs">
+                <div class="sign">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Vietnam_road_sign_P130.svg/120px-Vietnam_road_sign_P130.svg.png" alt="Cấm dừng đỗ">
+                    <p>P.130: Cấm dừng và đỗ xe</p>
+                </div>
+                <div class="sign">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Vietnam_road_sign_P102.svg/120px-Vietnam_road_sign_P102.svg.png" alt="Cấm đi ngược chiều">
+                    <p>P.102: Cấm đi ngược chiều</p>
+                </div>
+                <div class="sign">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Vietnam_road_sign_P123a.svg/120px-Vietnam_road_sign_P123a.svg.png" alt="Cấm rẽ trái">
+                    <p>P.123a: Cấm rẽ trái</p>
+                </div>
+                <div class="sign">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Vietnam_road_sign_P127-60.svg/120px-Vietnam_road_sign_P127-60.svg.png" alt="Tốc độ tối đa">
+                    <p>P.127: Tốc độ tối đa (VD: 60)</p>
+                </div>
+                <div class="sign">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Vietnam_road_sign_P122.svg/120px-Vietnam_road_sign_P122.svg.png" alt="Stop">
+                    <p>P.122: Dừng lại (STOP)</p>
+                </div>
             </div>
         </div>
-        <p style="text-align: center;">(Nguồn: Wikimedia Commons – QCVN 41:2019/BGTVT)</p>
+
+        <div class="sign-group">
+            <h3>2. Biển Báo Nguy Hiểm</h3>
+            <div class="sign-desc">
+                <strong>Đặc điểm:</strong> Hình tam giác đều, viền đỏ, nền vàng, hình vẽ màu đen. <br>
+                <strong>Ý nghĩa:</strong> Cảnh báo các tình huống nguy hiểm có thể xảy ra để lái xe chú ý giảm tốc độ.
+            </div>
+            <div class="signs">
+                <div class="sign">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Vietnam_road_sign_W201b.svg/120px-Vietnam_road_sign_W201b.svg.png" alt="Ngoặt nguy hiểm">
+                    <p>W.201b: Chỗ ngoặt nguy hiểm</p>
+                </div>
+                <div class="sign">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Vietnam_road_sign_W224.svg/120px-Vietnam_road_sign_W224.svg.png" alt="Người đi bộ">
+                    <p>W.224: Đường người đi bộ cắt ngang</p>
+                </div>
+                <div class="sign">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Vietnam_road_sign_W233.svg/120px-Vietnam_road_sign_W233.svg.png" alt="Nguy hiểm khác">
+                    <p>W.233: Nguy hiểm khác</p>
+                </div>
+                <div class="sign">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Vietnam_road_sign_W227.svg/120px-Vietnam_road_sign_W227.svg.png" alt="Công trường">
+                    <p>W.227: Công trường</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sign-group">
+            <h3>3. Biển Hiệu Lệnh</h3>
+            <div class="sign-desc">
+                <strong>Đặc điểm:</strong> Hình tròn, nền xanh lam, hình vẽ màu trắng. <br>
+                <strong>Ý nghĩa:</strong> Báo hiệu các lệnh bắt buộc phải thi hành (ví dụ: phải đi thẳng, phải rẽ trái...).
+            </div>
+            <div class="signs">
+                <div class="sign">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Vietnam_road_sign_R301a.svg/120px-Vietnam_road_sign_R301a.svg.png" alt="Hướng đi thẳng">
+                    <p>R.301a: Các xe chỉ được đi thẳng</p>
+                </div>
+                <div class="sign">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Vietnam_road_sign_R303.svg/120px-Vietnam_road_sign_R303.svg.png" alt="Vòng xuyến">
+                    <p>R.303: Nơi giao nhau chạy theo vòng xuyến</p>
+                </div>
+                <div class="sign">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Vietnam_road_sign_R302b.svg/120px-Vietnam_road_sign_R302b.svg.png" alt="Rẽ phải">
+                    <p>R.302b: Hướng phải đi vòng sang phải</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sign-group">
+            <h3>4. Biển Chỉ Dẫn</h3>
+            <div class="sign-desc">
+                <strong>Đặc điểm:</strong> Hình vuông hoặc chữ nhật, nền xanh, hình vẽ màu trắng. <br>
+                <strong>Ý nghĩa:</strong> Hướng dẫn hướng đi hoặc các điều cần biết.
+            </div>
+            <div class="signs">
+                <div class="sign">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Vietnam_road_sign_I401.svg/120px-Vietnam_road_sign_I401.svg.png" alt="Chỉ dẫn">
+                    <p>I.401: Bắt đầu đường ưu tiên</p>
+                </div>
+                <div class="sign">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Vietnam_road_sign_I407a.svg/120px-Vietnam_road_sign_I407a.svg.png" alt="Đường một chiều">
+                    <p>I.407a: Đường một chiều</p>
+                </div>
+                <div class="sign">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Vietnam_road_sign_I423a.svg/120px-Vietnam_road_sign_I423a.svg.png" alt="Người đi bộ sang ngang">
+                    <p>I.423a: Đường người đi bộ sang ngang</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sign-group">
+            <h3>5. Biển Phụ</h3>
+            <div class="sign-desc">
+                <strong>Đặc điểm:</strong> Hình chữ nhật hoặc vuông, nền trắng, viền đen, chữ/hình đen. <br>
+                <strong>Ý nghĩa:</strong> Thường đặt dưới biển chính để thuyết minh, bổ sung ý nghĩa cho biển chính.
+            </div>
+            <div class="signs">
+                <div class="sign">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Vietnam_road_sign_S501.svg/120px-Vietnam_road_sign_S501.svg.png" alt="Phạm vi tác dụng">
+                    <p>S.501: Phạm vi tác dụng của biển</p>
+                </div>
+                <div class="sign">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Vietnam_road_sign_S504.svg/120px-Vietnam_road_sign_S504.svg.png" alt="Nhóm xe">
+                    <p>S.504: Làn đường cho nhóm xe</p>
+                </div>
+            </div>
+        </div>
+
+        <p style="text-align: center; margin-top: 20px; font-size: 0.9em; color: #666;">(Nguồn ảnh: Wikimedia Commons – QCVN 41:2019/BGTVT)</p>
     </section>
 
     <footer>
@@ -436,12 +525,11 @@
 
         dropdownLinks.forEach(link => {
             link.addEventListener('click', function(e) {
-                // Đóng tất cả menu thả xuống ngay lập tức
+               
                 checkboxes.forEach(cb => cb.checked = false);
             });
         });
     </script>
 
 </body>
-
 </html>
